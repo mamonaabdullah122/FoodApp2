@@ -8,6 +8,12 @@ import { delay } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class DishService {
+  postComment(_id: (_id: any) => void, value: any) {
+    throw new Error('Method not implemented.');
+  }
+  putDish(dishcopy: Dish) {
+    throw new Error('Method not implemented.');
+  }
 
   constructor() { }
 
@@ -15,7 +21,7 @@ export class DishService {
     return of(DISHES).pipe(delay(2000));
   }
 
-  getDish(id: string): Observable<Dish> {
+  getDish(id: number): Observable<Dish> {
     return of(DISHES.filter((dish) => (dish.id === id))[0]).pipe(delay(2000));
   }
 

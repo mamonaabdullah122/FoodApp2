@@ -12,70 +12,85 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
-import { MatSelectModule } from '@angular/material/select';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { ReactiveFormsModule } from '@angular/forms';
+import { MatProgressSpinnerModule, MatSpinner } from '@angular/material/progress-spinner';
 
-import { AppComponent } from './app.component';
+
+
+import { Observable } from 'rxjs';
+
+
+import {AppComponent} from './app.component';
 
 import 'hammerjs';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
-import { ContactComponent } from './contact/contact.component';
-import { MenuComponent } from './menu/menu.component';
-import { DishdetailComponent } from './menu/dishdetail/dishdetail.component';
+import {MenuComponent} from './menu/menu.component';
+import {DishdetailComponent} from '../app/menu/dishdetail/dishdetail.component';
 
-import { DishService } from './Service/dish.service';
-import { PromotionService } from './services/promotion.service';
-import { LeaderService } from './services/leader.service';
-import { AppRoutingModule } from '../app/app-routing/app-routing.module';
-import { LoginComponent } from './login/login.component';
+import {DishService} from '../app/Service/dish.service';
+import {HeaderComponent} from './header/header.component';
+import {FooterComponent} from './footer/footer.component';
+import {AboutComponent} from './about/about.component';
+import {HomeComponent} from './home/home.component';
+import {ContactComponent} from './contact/contact.component';
+
+import {AppRoutingModule} from './app-routing/app-routing.module';
+import {PromotionService} from './services/promotion.service';
+import {LeaderService} from './services/leader.service';
+import {LoginComponent} from './login/login.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import {baseURL} from '../app/menu/shared/baseurl';
+
+import { MapType } from '@angular/compiler';
+
 
 @NgModule({
   declarations: [
-    AppComponent,
-    MenuComponent,
+    AppComponent ,
+    MenuComponent ,
     DishdetailComponent,
-    HeaderComponent,
-    FooterComponent,
-    HomeComponent,
-    AboutComponent,
-    ContactComponent,
-    LoginComponent
-  ],
+    HeaderComponent ,
+    FooterComponent ,
+    AboutComponent ,
+    HomeComponent ,
+    ContactComponent ,
+    LoginComponent ,
+
+  ] ,
   imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    FlexLayoutModule,
-    AppRoutingModule,
-    MatListModule,
-    MatGridListModule,
-    MatCardModule,
-    MatButtonModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatCheckboxModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatCardModule,
-    MatSelectModule,
-    MatSlideToggleModule,
-    MatProgressSpinnerModule
-  ],
-  providers:[
-    DishService,
-    PromotionService,
-    LeaderService,
-  ],
+    BrowserModule ,
+    BrowserAnimationsModule ,
+    FlexLayoutModule ,
+    MatButtonModule ,
+    MatCheckboxModule ,
+    MatFormFieldModule ,
+    MatInputModule ,
+    MatToolbarModule ,
+    MatListModule ,
+    MatGridListModule ,
+    MatCardModule ,
+    MatDialogModule ,
+    FlexLayoutModule ,
+    AppRoutingModule ,
+    FormsModule ,
+    ReactiveFormsModule ,
+    HttpClientModule,
+    MatProgressSpinnerModule,
+    Observable,
+    MapType,
+
+  ] ,
   entryComponents: [
-    LoginComponent
-  ],
-  bootstrap:
-   [AppComponent]
+    LoginComponent,
+
+  ] ,
+  providers: [
+    DishService ,
+    PromotionService ,
+    LeaderService ,
+
+    {provide: 'BaseURL' , useValue: baseURL}
+  ] ,
+  bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
